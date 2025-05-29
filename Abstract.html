@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract</title>
+    <style>
+        /* Background styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('abstract.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white; /* Default text color */
+            position: relative;
+        }
+
+        /* Transparent overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay for better readability */
+            z-index: -1;
+        }
+
+        /* Header styling */
+        .head h1 {
+            text-align: center;
+            font-size: 4em;
+            margin-top: 150px;
+            transition: color 0.3s ease-in-out;
+            text-transform: uppercase;
+            font-weight: bold;
+
+        }
+
+        .head h1:hover {
+            color: aqua;
+        }
+
+        /* Paragraph container */
+        .par {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px); /* Blur effect for a glassmorphism style */
+        }
+
+        /* Paragraph text */
+        .par p {
+            font-size: 1.7em;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .par p:hover{
+            color: aqua;
+        }
+        
+        .nav-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-buttons a {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-size: 16px;
+  }
+
+  .nav-buttons a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+    </style>
+</head>
+<body>
+
+    <div class="head">
+        <h1>Abstract</h1>
+    </div>
+
+    <div class="par">
+        <p>
+            This document presents a comprehensive record of residents in Balaji Nagar, detailing their contact information, Aadhar numbers, OTT platform subscriptions, and addresses. The data aims to provide insights into digital consumption trends within the locality and serve as a reference for community management. By analyzing the residents’ preferences for OTT platforms, we can observe streaming habits and digital penetration in the area.
+        </p>
+    </div>
+    <div class="nav-buttons">
+        <a href="index.html">Home</a>
+        <a href="Introduction.html">Next Page</a>
+      </div>
+
+</body>
+</html>

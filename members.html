@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Members</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0a192f, #0f3460); /* dark blue theme */
+      color: #f8fafc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .hover-effect:hover {
+      background: #cbd5e1; /* light slate */
+      color: #0f172a;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .button-hover:hover {
+      background-color: #e2e8f0; /* light gray */
+      color: #1e293b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .glow-effect {
+      text-shadow: 0 0 4px #06b6d4, 0 0 8px #9333ea;
+    }
+  </style>
+</head>
+<body class="flex flex-col">
+
+  <header class="bg-gradient-to-r from-black to-gray-900 p-6 text-center border-b border-gray-700 fade-in-up">
+    <h1 class="text-3xl font-bold text-white">Our Team Members</h1>
+    <p class="text-gray-400 mt-2">Meet the people behind the project</p>
+  </header>
+
+  <div class="mt-4 fade-in-up text-left px-8">
+    <p class="text-gray-400 glow-effect text-center text-lg">
+      Under the guidance of
+    </p>
+    <div class="bg-gray-800 p-4 rounded-lg w-full text-left mt-2 transform transition-transform duration-300 hover:scale-105 hover-effect"> 
+      <p class="text-2xl font-semibold">Dr. P. NAGENDRA KUMAR</p>
+      <p class="text-lg">Professor and HOD of (AI&ML)</p>
+    </div>
+  </div>
+
+  <h2 class="text-4xl font-medium text-white mt-10 mb-4 text-center fade-in-up">The Project Associates Are</h2>
+
+  <main class="flex-grow flex flex-col items-center p-8">
+    <div class="flex flex-wrap justify-center gap-6 text-lg fade-in-up w-full px-4">
+      <div class="bg-gray-800 p-4 rounded-lg w-64 text-center transform transition-transform duration-300 hover:scale-105 hover-effect">
+        1. R. CHANAKYA<br>232U1A3393
+      </div>
+      <div class="bg-gray-800 p-4 rounded-lg w-64 text-center transform transition-transform duration-300 hover:scale-105 hover-effect">
+        2. S. AKASH<br>232U1A3394
+      </div>
+      <div class="bg-gray-800 p-4 rounded-lg w-64 text-center transform transition-transform duration-300 hover:scale-105 hover-effect">
+        3. Y. V. S. K. MADHAV PRASAD<br>232U1A33C8
+      </div>
+      <div class="bg-gray-800 p-4 rounded-lg w-64 text-center transform transition-transform duration-300 hover:scale-105 hover-effect">
+        4. Y. SRIRAM<br>232U1A33D1
+      </div>
+    </div>
+
+    <a href="pie chart.html" class="mt-8">
+      <button class="bg-blue-500 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline fade-in-up transition-transform duration-300 button-hover">
+        Next Page
+      </button>
+    </a>
+  </main>
+
+</body>
+</html>

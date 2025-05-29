@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #141E30, #243B55);
+            text-align: center;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard {
+            max-width: 90%;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .chart-box {
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chart-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .chart-box canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .inference-section {
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            text-align: left;
+            padding-left: 30px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .inference-section h2 {
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .inference-section p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-buttons a {
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 12px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .nav-buttons a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="chart-box">
+            <h2>Users per OTT Platform</h2>
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <h2>OTT Platform Usage</h2>
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+
+    <div class="inference-section">
+        <h2>Inference from Survey Data</h2>
+        <p>Survey we done on total number of residents: 50</p>
+        <p>Number of people does not using any OTT platform: 18</p>
+        <p>Total no people using Hotstar: 14</p>
+        <p>No of people using Amazon Prime: 9</p>
+        <p>No of people using Netflix: 3</p>
+        <p>Total no of people using ETV Win: 3</p>
+        <p>Total no of people using other OTT platforms: 3</p>
+    </div>
+
+    <br>
+    <div class="nav-buttons">
+        <a href="index.html">Home</a>
+        <a href="conclusion.html">Next Page</a>
+    </div>
+
+    <script>
+        var ctxBar = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['Hotstar', 'Amazon Prime', 'Netflix', 'ETV Win', 'Others', 'No Users'],
+                datasets: [{
+                    label: 'Users',
+                    data: [14, 9, 3, 3, 3, 18],
+                    backgroundColor: ['#3498DB', '#F39C12', '#E74C3C', '#1ABC9C', '#9B59B6', '#2ECC71']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 2000,
+                    easing: 'easeOutBounce'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }
+                    }
+                }
+            }
+        });
+
+        var ctxPie = document.getElementById('pieChart').getContext('2d');
+        var pieChart = new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: ['Hotstar', 'Amazon Prime', 'Netflix', 'ETV Win', 'Others', 'No Users'],
+                datasets: [{
+                    data: [14, 9, 3, 3, 3, 18],
+                    backgroundColor: ['#3498DB', '#F39C12', '#E74C3C', '#1ABC9C', '#9B59B6', '#2ECC71']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    animateRotate: true,
+                    animateScale: true
+                },
+                plugins: {
+                    datalabels: {
+                        formatter: (value, context) => {
+                            let total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                            let percentage = ((value / total) * 100).toFixed(1) + "%";
+                            return percentage;
+                        },
+                        color: '#fff',
+                        font: {
+                            weight: 'bold',
+                            size: 14
+                        }
+                    }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+    </script>
+</body>
+</html>

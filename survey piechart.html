@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Data Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        canvas {
+            margin: 20px auto;
+        }
+        h2 {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1.5s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .inference {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            background: #fffefe;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2s;
+            text-align: left;
+        }
+        .nav-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-buttons a {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #272626;
+    padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-size: 16px;
+  }
+
+  .nav-buttons a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+    </style>
+</head>
+<body>
+    <h2>OTT Platform Subscription Distribution</h2>
+    <canvas id="pieChart" width="400" height="400"></canvas>
+    <canvas id="barChart" width="400" height="400"></canvas>
+    
+    <div class="inference">
+        <p><strong>Inference:</strong></p>
+        <p>15 residents do not use any OTT platform.</p>
+        <p>10 residents use Hotstar.</p>
+        <p>7 residents use Amazon Prime.</p>
+        <p>3 residents use Netflix.</p>
+        <p>3 residents use ETV Win.</p>
+        <p>1 resident uses Zee5.</p>
+        <p>1 resident uses Sony Live.</p>
+        <p>1 resident uses OTT Play.</p>
+    </div>
+    <br>
+    
+    <script>
+        const data = {
+            "No": 15,
+            "AMAZON PRIME": 7,
+            "NETFLIX": 3,
+            "HOTSTAR": 10,
+            "ZEE5": 1,
+            "SONY LIVE": 1,
+            "ETV WIN": 3,
+            "OTT PLAY": 1
+        };
+
+        const labels = Object.keys(data);
+        const values = Object.values(data);
+
+        const ctxPie = document.getElementById('pieChart').getContext('2d');
+        new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: values,
+                    backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff', '#ff9f40', '#c9cbcf', '#8cff66']
+                }]
+            },
+            options: {
+                animation: {
+                    duration: 2000,
+                    easing: 'easeInOutBounce'
+                }
+            }
+        });
+
+        const ctxBar = document.getElementById('barChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Number of Users',
+                    data: values,
+                    backgroundColor: 'skyblue'
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 2000,
+                    easing: 'easeInOutBounce'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
+    <br>
+     <div class="nav-buttons">
+        <a href="A.html">Home</a>
+        <a href="conclusion.html">Next Page</a>
+      </div>
+</body>
+</html>

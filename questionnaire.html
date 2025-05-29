@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 40%;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            text-align: left;
+        }
+        input, select, textarea {
+            display: block;
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background: #fff;
+            font-size: 14px;
+        }
+        button {
+            background-color: #1e272e;
+            color: #4bcffa;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Adding shadow */
+        }
+        button:hover {
+            box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.5);
+        }
+        #ott-type-container, #subscription-details {
+            display: none;
+        }
+        .nav-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-buttons a {
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-size: 16px;
+  }
+
+  .nav-buttons a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Questionnaire</h2>
+        <p>Please take a few minutes to answer the following questions.</p>
+        <form id="questionnaireForm">
+            <label for="name">Enter Your Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Enter your Number</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="ott">Do You use OTT platforms</label>
+            <select id="ott" name="ott" required>
+                <option value="">-- Select an option --</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <div id="ott-type-container">
+                <label for="ott-type">Which Type of OTT are you using</label>
+                <select id="ott-type" name="ott-type">
+                    <option value="">-- Select an option --</option>
+                    <option value="Streaming">Streaming</option>
+                    <option value="Subscription-based">Subscription-based</option>
+                    <option value="Ad-supported">Ad-supported</option>
+                </select>
+            </div>
+
+            <div id="subscription-details">
+                <label for="subscription-type">Which ott are you using</label>
+                <input type="text" id="subscription-type" name="subscription-type" placeholder="Enter subscription details">
+            </div>
+
+            <label for="aadhaar">Enter Your Aadhaar Number</label>
+            <input type="text" id="aadhaar" name="aadhaar" required>
+
+            <label for="feedback">Additional Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" placeholder="Write your feedback..."></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="nav-buttons">
+        <a href="index.html">Home</a>
+        <a href="members.html">Next Page</a>
+      </div>
+    <script>
+        document.getElementById("questionnaireForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Thank you for submitting the questionnaire!");
+        });
+
+        document.getElementById("ott").addEventListener("change", function() {
+            var ottTypeContainer = document.getElementById("ott-type-container");
+            if (this.value === "Yes") {
+                ottTypeContainer.style.display = "block";
+            } else {
+                ottTypeContainer.style.display = "none";
+                document.getElementById("subscription-details").style.display = "none";
+            }
+        });
+
+        document.getElementById("ott-type").addEventListener("change", function() {
+            var subscriptionDetails = document.getElementById("subscription-details");
+            if (this.value === "Subscription-based") {
+                subscriptionDetails.style.display = "block";
+            } else {
+                subscriptionDetails.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
